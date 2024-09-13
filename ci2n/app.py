@@ -4,14 +4,14 @@ import time
 from pathlib import Path
 
 import cv2
+import fire
 import numpy as np
-
+import tensorflow as tf
 import torch
 from loguru import logger
 from pydantic import BaseModel
 from torchvision import transforms
 from ultralytics import YOLO
-import tensorflow as tf
 
 import ci2n.line_algo as la
 from ci2n.items import Device, Junction, Port, Circuit, class_name_to_device_type
@@ -345,18 +345,25 @@ def circuit_image_to_netlist_from_file(file_path: os.PathLike, settings: Setting
     return circuit_image_to_netlist(image, settings, verbose)
 
 
-def main():
+def main(path: str, output: str, verbose: bool = True):
+
+
     # 读取图片
     target_json = circuit_image_to_netlist_from_file(
-        Path('test_circuit_img.jpg'),
+        Path(path),
         Settings(
-            yolo_model_path=Path('yolo_model.pt'),
-            item_classifier_model_path=Path('item_classifier.h5'),
-            junction_classifier_model_path=Path('junction_classifier.pt'),
+            yolo_model_path=Path('./models/yolo_model.pt'),
+            item_classifier_model_path=Path('./models/item_classifier.h5'),
+            junction_classifier_model_path=Path('./models/junction_classifier.pt'),
             verbose_path=Path('verbose')
-        )
+        ),
+        verbose=verbose
     )
+
+    with open(output, 'w') as f:
+        f.write(target_json)
 
 
 if __name__ == '__main__':
-    main()
+
+    fire.Fire(main)
