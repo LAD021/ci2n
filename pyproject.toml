@@ -21,9 +21,6 @@ ultralytics = "^8.2.76"
 fire = "^0.6.0"
 urllib3 = "1.22"
 
-[tool.poetry.group.dev.dependencies]
-black = "^24.8.0"
-
 
 [[tool.poetry.source]]
 name = "mirrors"
