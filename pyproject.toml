@@ -1,21 +1,15 @@
 [tool.poetry]
-name = "testyolo"
+name = "ci2n"
 version = "0.1.0"
-description = ""
+description = "circuit image to netlist"
 authors = ["LAD021"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-jupyter = "^1.0.0"
-pylzma = "^0.5.0"
-pandas = "^2.2.2"
-tqdm = "^4.66.5"
-pyyaml = "^6.0.2"
+python = ">=3.9"
+
 opencv-python = "^4.10.0.84"
 scikit-image = "^0.24.0"
-pcv = "^0.0.2"
-runipy = "^0.1.5"
 loguru = "^0.7.2"
 pydantic = "^2.9.1"
 torch = "^2.4.1"
@@ -23,17 +17,11 @@ torchvision = "^0.19.1"
 tensorflow = "^2.17.0"
 keras = "^3.5.0"
 igraph = "^0.11.6"
+ultralytics = "^8.2.76"
 
 [tool.poetry.group.dev.dependencies]
 black = "^24.8.0"
-notebook = "^7.2.1"
-wandb = "^0.17.6"
-urllib3 = "1.26.7"
 
-
-
-[tool.poetry.group.ultralytics.dependencies]
-ultralytics = "^8.2.76"
 
 [[tool.poetry.source]]
 name = "mirrors"
