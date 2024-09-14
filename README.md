@@ -7,7 +7,7 @@ Install poetry for python package management.
 ## 2. Install environment
 
 ```bash
-poetry install
+poetry update
 ```
 
 ## 3. Run
