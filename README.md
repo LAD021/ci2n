@@ -4,6 +4,8 @@
 
 Install poetry for python package management.
 
+Need git-lfs
+
 ## 2. Install environment
 
 ```bash
